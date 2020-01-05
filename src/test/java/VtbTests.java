@@ -75,8 +75,6 @@ public class VtbTests{
         registerForSalaryPage.clickCreateButton();
         registerForSalaryPage.clickCreateRegisterForSalaryButton();
         registerForSalaryPage.fillRegisterForSalaryFormWithPerson();
-
     }
-
 
 }

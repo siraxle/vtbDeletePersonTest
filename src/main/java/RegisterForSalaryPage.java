@@ -48,12 +48,14 @@ public class RegisterForSalaryPage {
     private By payrollAmountField = By.xpath("//input[@name=\"payrollCounts.payrollAmount\"]");
     private By totalField = By.xpath("//input[@name=\"payrollCounts.total\"]");
     private By saveButton = By.xpath("//button[@id='SAVE']");
+    private By saveButtonOnAccrualInformationWindow = By.xpath("//div[@class=\"modal-form__footer-2b_\"]//span[text() = 'Сохранить']/..");
     private By addButton = By.xpath("//span[@class=\"btn__text-1VJ\" and text() = 'Добавить']");
     private By nameEmployeeField = By.xpath("//input[@name=\"employee\"]");
     private By employeeSNILSField = By.xpath("//input[@name=\"employee.snils\"]");
     private By employeeCardNumberField = By.xpath("//input[@name=\"employee.cardNumber\"]");
     private By employeeAccountNumberField = By.xpath("//input[@name=\"employee.accountNumber\"]");
     private By bankBIKField = By.xpath("//input[@name=\"bank\"]");
+    private By addSelect = By.xpath("//li[contains(text(), \"Добавить\")]");
     private By amountField = By.xpath("//input[@name=\"amount\"]");
 
 
@@ -120,9 +122,6 @@ public class RegisterForSalaryPage {
         $(totalField).setValue(total);
     }
 
-    public void fillNameEmployeeField(String name) {
-        $(nameEmployeeField).setValue(name);
-    }
 
     public void fillRegisterForSalaryFormWithFile(){
         String docNumber = "666" + random.nextInt(999999);
@@ -140,8 +139,39 @@ public class RegisterForSalaryPage {
 
     public void fillAccrualInformationField() {
         fillNameEmployeeField("Ефремов Автотест Тестович");
+        fillEmployeeSNILSField("23592650988");
+        fillEmployeeCardNumberField("3333555566667777");
+        fillEmployeeAccountNumberField("12345810912321231313");
+        fillBankBIKField("040037470");
+        fillAmountField("1000");
+        clickSaveButtonOnAccrualInformationWindow();
     }
 
+    private void fillAmountField(String amount) {
+        $(amountField).setValue(amount);
+    }
+
+    private void fillBankBIKField(String bik) {
+        $(bankBIKField).setValue(bik);
+        $(addSelect).click();
+    }
+
+    public void fillEmployeeSNILSField(String snils) {
+        $(employeeSNILSField).setValue(snils);
+    }
+
+    public void fillNameEmployeeField(String name) {
+        $(nameEmployeeField).setValue(name);
+        $(addSelect).click();
+    }
+
+    private void fillEmployeeCardNumberField(String cardNumber) {
+        $(employeeCardNumberField).setValue(cardNumber);
+    }
+
+    private void fillEmployeeAccountNumberField(String accountNumber) {
+        $(employeeAccountNumberField).setValue(accountNumber);
+    }
 
     private void clickAddButton() {
         $(addButton).click();
@@ -149,6 +179,10 @@ public class RegisterForSalaryPage {
 
     public void clickSave() {
         $(saveButton).click();
+    }
+
+    private void clickSaveButtonOnAccrualInformationWindow() {
+        $(saveButtonOnAccrualInformationWindow).click();
     }
 
     public void fillRegisterForSalaryFormWithPerson() {
