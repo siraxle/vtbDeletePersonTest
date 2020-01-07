@@ -1,5 +1,6 @@
 import com.codeborne.selenide.SelenideElement;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 
@@ -8,7 +9,7 @@ import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 
-public class VtbTests{
+public class VtbTest {
     private AuthorizeWithLoginPage authorizeWithLoginPage;
     private MainVTBPage mainVTBPage;
     private RegisterForSalaryPage registerForSalaryPage;
@@ -33,6 +34,7 @@ public class VtbTests{
 
     //переход на страницу ЗЗП
     @Test
+    @Ignore
     public void getRegisterForSalaryPageTest() {
         authorizeWithLoginPage = new AuthorizeWithLoginPage();
         mainVTBPage = new MainVTBPage();
@@ -46,6 +48,7 @@ public class VtbTests{
 
     //создание реестра ЗЗП в статусе "Новый" с файлом в ведомости
     @Test
+    @Ignore
     public void createRegisterForSalaryWithFileTest() {
         authorizeWithLoginPage = new AuthorizeWithLoginPage();
         mainVTBPage = new MainVTBPage();
@@ -65,6 +68,7 @@ public class VtbTests{
 
     //создание реестра ЗЗП в статусе "Новый" с сотрудником в ведомости
     @Test
+    @Ignore
     public void createRegisterForSalaryWithPersonTest() {
         authorizeWithLoginPage = new AuthorizeWithLoginPage();
         mainVTBPage = new MainVTBPage();

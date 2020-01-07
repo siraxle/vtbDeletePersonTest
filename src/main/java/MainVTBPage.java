@@ -9,6 +9,7 @@ public class MainVTBPage {
     private By head = By.xpath("//span[text()='Главная']");
     private By salaryProjectLink = By.xpath("//span[text() = 'Зарплатный проект']");
     private By registerForSalaryLink = By.xpath("//a[text() = 'Реестры на зачисление заработной платы']");
+    private By registerOfCardsLink = By.xpath("//a[text() = 'Реестры на выпуск карт']");
 
     public SelenideElement getHead() {
         SelenideElement head = $(this.head);
@@ -20,6 +21,13 @@ public class MainVTBPage {
         actions().moveToElement(spLink).build().perform();
         $(registerForSalaryLink).click();
         return new RegisterForSalaryPage();
+    }
+
+    public RegisterOfCardPage getRegisterOfCardsPage() {
+        SelenideElement spLink = $(salaryProjectLink);
+        actions().moveToElement(spLink).build().perform();
+        $(registerOfCardsLink).click();
+        return new RegisterOfCardPage();
     }
 
 }
